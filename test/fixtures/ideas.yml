@@ -2,8 +2,10 @@
 
 one:
   id: 
-  name: MyString
+  category_id: 
+  body: MyText
 
 two:
   id: 
-  name: MyString
+  category_id: 
+  body: MyText
