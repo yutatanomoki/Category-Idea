@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   def index
-    categorys = Category.all
-    render json: categorys, each_serializer: CategorySerializer
+    categories = Category.all
+    render json: categories, each_serializer: CategorySerializer, include: [:ideas]
   end
 
   def create
