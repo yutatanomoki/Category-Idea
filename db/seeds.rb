@@ -1,9 +1,10 @@
-Category.create(
-  name: 'アプリケーション'
-)
+5.times do
+  name = Faker::Construction.subcontract_category
+  Category.create!(name: name)
+end
 
-Idea.create(
-  body: 'タスク管理ツール'
-)
-
-curl -X POST -H "Content-Type: application/json" -d '{"idea": {"body":"マッチング"}}' http://localhost:3000/ideas
+10.times do
+  category_id = rand(1..3)
+  body = Faker::Food.dish
+  Idea.create!(category_id: category_id, body: body)
+end
