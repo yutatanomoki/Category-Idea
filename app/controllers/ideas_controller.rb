@@ -1,13 +1,7 @@
 class IdeasController < ApplicationController
   def index
     ideas = idea.all
-    render json: @ideas
-  end
-
-  def show
-    ideas = Idea.find(params[:id])
-    category =  idea.category
-    render json: @ideas
+    render json: ideas, each_serializer: CategorySerializer, include: [:categories]
   end
 
   def create
