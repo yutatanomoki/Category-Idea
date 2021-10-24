@@ -5,15 +5,20 @@ class IdeasController < ApplicationController
   end
 
   def create
+    category = Category.new(category_params)
     idea = Idea.new(idea_params)
-    if idea.save
-      render json: { status: 'SUCCESS', data: idea }
+    if category_name.save
+      idea_body.save
     else
-      render json: { status: 'ERROR', data: idea.errors }
+      render json: ideas
     end
   end
 
   def idea_params
     params.require(:idea).permit(:body)
+  end
+
+  def category_params
+    params.require(:category).permit(:name)
   end
 end
