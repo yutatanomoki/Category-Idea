@@ -7,7 +7,7 @@ class IdeasController < ApplicationController
   def create
     category = Category.new(category_params)
     idea = Idea.new(idea_params)
-    if category_name.save
+    if Category.exists?(name: params[:category][:name])
       idea_body.save
     else
       render json: ideas
